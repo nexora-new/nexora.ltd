@@ -1,7 +1,0 @@
-.env
-reaction_roles.json
-__pycache__/
-*.pyc
-*.pyo
-.venv/
-venv/
