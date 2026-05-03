@@ -56,27 +56,32 @@ git push -u origin main
 
 ---
 
-## 📖 คำสั่งใช้งาน
+## 📖 Slash Commands
 
-> ต้องมีสิทธิ์ **Manage Roles** ในการใช้คำสั่งด้านล่าง
+> ต้องมีสิทธิ์ **Manage Roles** ในการใช้คำสั่ง (เฉพาะผู้ใช้ที่มีสิทธิ์เท่านั้นจะเห็นตัวเลือก)
 
-| คำสั่ง | คำอธิบาย |
-|--------|----------|
-| `!rr` | แสดงเมนูคำสั่งทั้งหมด |
-| `!rr setup #channel "หัวข้อ" [คำอธิบาย]` | สร้างข้อความรับยศในห้องที่ระบุ |
-| `!rr add <message_id> <emoji> <@role>` | ผูก emoji กับยศ |
-| `!rr remove <message_id> <emoji>` | ลบการผูก emoji-ยศ |
-| `!rr list` | แสดงรายการทั้งหมด |
+| คำสั่ง | ตัวเลือก | คำอธิบาย |
+|--------|---------|----------|
+| `/setup` | `channel` `title` `description` `image` | สร้างข้อความรับยศ |
+| `/add` | `message_id` `emoji` `role` | ผูก emoji กับยศ |
+| `/remove` | `message_id` `emoji` | ลบการผูก emoji-ยศ |
+| `/list` | — | แสดงรายการทั้งหมด |
+| `/delete-message` | `message_id` | ลบข้อความรับยศออกจากระบบ |
+
+### ✨ ฟีเจอร์พิเศษ
+- **Autocomplete**: `message_id` และ `emoji` จะมีตัวเลือกให้คลิกได้เลย ไม่ต้องพิมพ์เอง
+- **Ephemeral**: คำสั่งทั้งหมดตอบกลับแบบ "เห็นเฉพาะคนใช้" ไม่รกห้อง
+- **Image support**: `/setup` รองรับอัปโหลดรูปภาพได้โดยตรง
 
 ### ตัวอย่างการใช้งาน
 
 ```
-!rr setup #รับยศ "เลือกยศของคุณ" กดอิโมจิเพื่อรับยศ
+/setup channel:#รับยศ title:เลือกยศของคุณ description:กดอิโมจิด้านล่าง
 
-# ได้ message_id มาแล้ว เช่น 1234567890
-!rr add 1234567890 🎮 @Gamer
-!rr add 1234567890 🎵 @Music
-!rr add 1234567890 🎨 @Artist
+# message_id จะปรากฎใน autocomplete ของ /add อัตโนมัติ
+/add message_id:[เลือกจากรายการ] emoji:🎮 role:@Gamer
+/add message_id:[เลือกจากรายการ] emoji:🎵 role:@Music
+/list
 ```
 
 ---
